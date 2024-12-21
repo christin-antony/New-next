@@ -198,20 +198,20 @@ const Home = () => {
           <div className="flex-container">
             <div className="column-1">
               <div className="icon_container">
-                <div className="icon-1">
-                  <PersonIcon className="div1Icon" />
+                <div className={` ${scroll ? "icon-1-X" : "icon-1"}`}>
+                  <PersonIcon className={` ${scroll ? "div1Icon_X" : "div1Icon"}`} />
                 </div>
-                <select className="drop_1">
+                <select  className={` ${scroll ? "drop_1-X" : "drop_1"}`}>
                   <option value="EN">EN</option>
                   <option value="ML">ML</option>
                 </select>
               </div>
             </div>
             <div className="column-2">
-              <img src="/images/logo.png" alt="logoX" className="imgX" />
+              <img src={scroll ? "/images/Nlogo.png" : "/images/logo.png"}  alt="logoX" className="imgX" />
             </div>
             <div className="column-3">
-              <nav className="nav-right">
+              <nav  className={` ${scroll ? "nav-right-X" : "nav-right"}`}>
                 <ul>
                   <li>
                     <a href="/#">Collections</a>

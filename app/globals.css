@@ -37,7 +37,7 @@ header {
   position: fixed;
 }
 .scroll-background {
-  background-color: black;
+  background-color:#EDE8E1;
   backdrop-filter: blur(10px);
   transition: 2000ms;
 }
@@ -87,8 +87,25 @@ header {
   cursor: pointer;
 }
 
-.icon-1:hover {
-  color: goldenrod;
+:hover>.icon-1 {
+  color: goldenrod !important;
+}
+
+.icon-1-X {
+  width: 33px;
+  height: 33px;
+  border-radius: 50px;
+  border: 1px solid #380913;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+:hover>.icon-1-X {
+  color: goldenrod !important;
 }
 
 .nav-right ul {
@@ -112,6 +129,28 @@ header {
   color: goldenrod;
 }
 
+.nav-right-X ul {
+  display: flex;
+  gap: 65px;
+  list-style-type: none;
+  margin-top: 55px;
+  padding: 0;
+}
+
+.nav-right-X a {
+  font-size: 27px;
+  font-weight: 300;
+  text-decoration: none;
+  color: #380913;
+  font-family: "latef";
+  transition: color 0.3s ease;
+}
+
+.nav-right-X a:hover {
+  color: goldenrod;
+}
+
+
 .icon_container {
   display: flex;
   justify-content: center;
@@ -125,18 +164,46 @@ header {
   width: 24px;
   height: 24px;
 }
+.div1Icon:hover{
+  color: goldenrod;
+
+}
+
+.div1Icon-X {
+  color: #380913;
+  width: 24px;
+  height: 24px;
+}
+.div1Icon-X:hover{
+  color: goldenrod;
+
+}
+
+
 
 .drop_1 {
   background-color: transparent;
-  font-size: 25px;
+  font-size: 24px;
   color: white;
   border: none;
   font-weight: lighter;
   font-family: "latef";
-  transition: color 0.3s ease;
   cursor: pointer;
 }
 .drop_1 :hover {
+  color: goldenrod;
+}
+
+.drop_1-X {
+  background-color: transparent;
+  font-size: 24px;
+  color: #380913;
+  border: none;
+  font-weight: lighter;
+  font-family: "latef";
+  cursor: pointer;
+}
+.drop_1-X :hover {
   color: goldenrod;
 }
 
@@ -145,6 +212,7 @@ header {
   height: 119px;
   padding-top: 34px;
   padding-bottom: 34px;
+  transition: 4000ms ease-in;
 }
 
 /* page-2 */
