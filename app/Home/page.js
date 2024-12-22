@@ -19,6 +19,17 @@ const data = [
   { name: "Boutiques", Link: "/#" },
 ];
 
+const data1 = [
+  { name: "Home", Link: "/#" },
+  { name: "About Us", Link: "/#" },
+  { name: "Investor Relations", Link: "/#" },
+  { name: "Support", Link: "/#" },
+  { name: "Careers", Link: "/#" },
+  { name: "Request an Invoice", Link: "/#" },
+  { name: "News & Event", Link: "/#" },
+  { name: "Contact", Link: "/#" },
+];
+
 const sampleSlides = [
   {
     imageSrc: "/images/slid-img4-1.png",
@@ -199,19 +210,25 @@ const Home = () => {
             <div className="column-1">
               <div className="icon_container">
                 <div className={` ${scroll ? "icon-1-X" : "icon-1"}`}>
-                  <PersonIcon className={` ${scroll ? "div1Icon_X" : "div1Icon"}`} />
+                  <PersonIcon
+                    className={` ${scroll ? "div1Icon_X" : "div1Icon"}`}
+                  />
                 </div>
-                <select  className={` ${scroll ? "drop_1-X" : "drop_1"}`}>
+                <select className={` ${scroll ? "drop_1-X" : "drop_1"}`}>
                   <option value="EN">EN</option>
                   <option value="ML">ML</option>
                 </select>
               </div>
             </div>
             <div className="column-2">
-              <img src={scroll ? "/images/Nlogo.png" : "/images/logo.png"}  alt="logoX" className="imgX" />
+              <img
+                src={scroll ? "/images/Nlogo.png" : "/images/logo.png"}
+                alt="logoX"
+                className="imgX"
+              />
             </div>
             <div className="column-3">
-              <nav  className={` ${scroll ? "nav-right-X" : "nav-right"}`}>
+              <nav className={` ${scroll ? "nav-right-X" : "nav-right"}`}>
                 <ul>
                   <li>
                     <a href="/#">Collections</a>
@@ -225,29 +242,40 @@ const Home = () => {
                 </ul>
               </nav>
               <div className="hamburgerIcon" onClick={() => setActive(!active)}>
-                
                 <div
                   className={`hamburger ${active ? "activeHamburger" : ""}`}
                 ></div>
               </div>
               <div className={`sidenav ${active ? "activeSidenav" : ""}`}>
-                <ul className="ulX">
-                  {data.map((item, i) => (
-                    <li key={i}>
-                      <a href={item.Link} className="aX">
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                <div className="icon-1-Y">
+                  <PersonIcon className="div1Icon_Y" />
+                </div>
+
+                <div className="side-container">
+                  <ul className="ulX">
+                    {data.map((item, i) => (
+                      <li key={i} className="ax-div-1">
+                        <a href={item.Link} className="aX">
+                          {item.name}
+                        </a>
+                      </li>
+                    ))}
+                    {data1.map((item, i) => (
+                      <li key={i} className="ax-div-1">
+                        <a href={item.Link} className="aY">
+                          {item.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </header>
 
-      {/* page1 */}
-
+      
       <div className="hero-sectioN">
         <video className="hero-videO" autoPlay loop muted>
           <source src="/videos/hero-video.mp4" type="video/mp4" />
@@ -291,7 +319,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* page2 */}
+    
 
       <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="0">
         <div className="hero-section-2">
@@ -467,10 +495,10 @@ const Home = () => {
                     </div>
                   </div>
 
-                  <h1 className="container-5-h text-2xl font-bold mt-4">
+                  <h1 className="container-5-h">
                     {slide.title}
                   </h1>
-                  <p className="container-5-p text-center mt-2">
+                  <p className="container-5-p">
                     {slide.description}
                   </p>
                 </SwiperSlide>
@@ -480,8 +508,8 @@ const Home = () => {
         </div>
       </div>
 
-      <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="0">
-        <div className="hero-section-5">
+      <div className="hero-section-5">
+        <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="0">
           <div className="container-6">
             <h1 className="container-3-h1">News & Updates</h1>
 
@@ -543,20 +571,24 @@ const Home = () => {
         </div>
       </div>
 
-      <div data-aos="zoom-in-up" data-aos-duration="2000" data-aos-delay="0">
-        <div className="hero-section-6">
+      <div className="hero-section-6">
+        <div data-aos="zoom-in-up" data-aos-duration="2000" data-aos-delay="0">
           <div className="container-7">
             <div className="inner-container-7">
-              <div>
-                <h1 className="container-7-h">Stay 20+ Nights and Save More</h1>
-                <p className="container-7-p">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                  rutrum accumsan diam a ornare. Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit.{" "}
-                </p>
-                <Link href="/#" className="container-7-btn">
-                  Book Now
-                </Link>
+              <div className="inner-container-7X">
+                <div>
+                  <h1 className="container-7-h">
+                    Stay 20+ Nights and Save More
+                  </h1>
+                  <p className="container-7-p">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                    rutrum accumsan diam a ornare. Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit.{" "}
+                  </p>
+                  <Link href="/#" className="container-7-btn">
+                    Book Now
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -566,9 +598,7 @@ const Home = () => {
       <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="0">
         <div className="hero-section-7">
           <div className="container-8">
-            <div>
-              <h1 className="container-8-h-X">Share Your Experince</h1>
-            </div>
+            <h1 className="container-8-h-X">Share Your Experince</h1>
           </div>
           <Swiper
             autoHeight={true}
@@ -581,24 +611,24 @@ const Home = () => {
             simulateTouch={false}
             breakpoints={{
               0: {
-                slidesPerView: 5,
-                spaceBetween: 20,
+                slidesPerView: 1,
+                spaceBetween: 0,
               },
               640: {
-                slidesPerView: 5,
-                spaceBetween: 20,
+                slidesPerView: 2,
+                spaceBetween: 0,
               },
               768: {
-                slidesPerView: 5,
-                spaceBetween: 20,
+                slidesPerView: 3,
+                spaceBetween: 0,
               },
               1000: {
-                slidesPerView: 5,
-                spaceBetween: 20,
+                slidesPerView: 4,
+                spaceBetween: 0,
               },
               1400: {
                 slidesPerView: 5,
-                spaceBetween: 20,
+                spaceBetween: 0,
               },
             }}
           >
@@ -683,6 +713,11 @@ const Home = () => {
                 data-aos="fade-up"
                 data-aos-duration="2000"
                 data-aos-delay="0"
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
               >
                 <Image
                   src="/images/log.png"
@@ -696,12 +731,13 @@ const Home = () => {
                 data-aos="fade-up"
                 data-aos-duration="2000"
                 data-aos-delay="0"
+                className="subscriber"
               >
-                <div className="input-div">
+                <div className="sub">
                   <h1 className="container-9-2-1-h">
                     Subscribe to Our Newsletter
                   </h1>
-                  <div>
+                  <div className="submit-div">
                     <input
                       type="text"
                       placeholder="Email address"
@@ -720,34 +756,46 @@ const Home = () => {
                 data-aos-delay="0"
               >
                 <div className="footr">
-                  <div>
-                    <h1 className="footer-h">Quick Links</h1>
-                    <p className="footer-p1">Home</p>
-                    <p className="footer-p1">About Us</p>
-                    <p className="footer-p1">Investor Relations</p>
-                    <p className="footer-p1">Support</p>
+                  <div className="foot-1">
+                    {" "}
+                    <div>
+                      <h1 className="footer-h">Quick Links</h1>
+                      <p className="footer-p1">Home</p>
+                      <p className="footer-p1">About Us</p>
+                      <p className="footer-p1">Investor Relations</p>
+                      <p className="footer-p1">Support</p>
+                    </div>
+                    <div>
+                      <p></p>
+                      <p className="footer-p1x">Careers</p>
+                      <p className="footer-p1">Request an Invoice</p>
+                      <p className="footer-p1">News & Event</p>
+                      <p className="footer-p1">Contact</p>
+                    </div>
                   </div>
-                  <div>
-                    <p></p>
-                    <p className="footer-p1x">Careers</p>
-                    <p className="footer-p1">Request an Invoice</p>
-                    <p className="footer-p1">News & Event</p>
-                    <p className="footer-p1">Contact</p>
-                  </div>
-                  <div>
-                    <h1 className="footer-h">Explore by Categories</h1>
-                    <p className="footer-p1">Collections</p>
-                    <p className="footer-p1">Residences</p>
-                    <p className="footer-p1">Boutiques</p>
-                  </div>
-                  <div>
-                    <p className="footer-p1-last">
-                      Riyadh, Saudi Arabia info@hometel-sa.com +966 59 00 0000
-                    </p>
-                    <div style={{ display: "flex", gap: "15px" }}>
-                      <IoLogoInstagram className="footer-icon" />{" "}
-                      <BsTwitterX className="footer-icon" />{" "}
-                      <FaLinkedin className="footer-icon" />
+                  <div className="foot-2">
+                    {" "}
+                    <div className="foot-2-1">
+                      <h1 className="footer-h">Explore by Categories</h1>
+                      <p className="footer-p1">Collections</p>
+                      <p className="footer-p1">Residences</p>
+                      <p className="footer-p1">Boutiques</p>
+                    </div>
+                    <div>
+                      <p className="footer-p1-last">
+                        Riyadh, Saudi Arabia info@hometel-sa.com +966 59 00 0000
+                      </p>
+                      <div style={{ display: "flex", gap: "15px" }}>
+                        <Link href="/#">
+                          <IoLogoInstagram className="footer-icon" />{" "}
+                        </Link>
+                        <Link href="/#">
+                          <BsTwitterX className="footer-icon" />{" "}
+                        </Link>
+                        <Link href="/#">
+                          <FaLinkedin className="footer-icon" />
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -759,16 +807,13 @@ const Home = () => {
       <div className="hero-section-9">
         <div className="container-10">
           <div className="container-10-di">
-            <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="0">
-              <p className="container-10-p">
-                © Hometel . 2024 . All rights reserved
-              </p>
-            </div>
-            <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="0">
-              <p className="container-10-p">
-                Privacy Policy | Terms & Condition | Cookies Settings
-              </p>
-            </div>
+            <p className="container-10-p1">
+              © Hometel . 2024 . All rights reserved
+            </p>
+
+            <p className="container-10-p2">
+              Privacy Policy | Terms & Condition | Cookies Settings
+            </p>
           </div>
         </div>
       </div>
