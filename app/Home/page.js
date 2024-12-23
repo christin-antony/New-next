@@ -243,9 +243,10 @@ const Home = () => {
               </nav>
               <div className="hamburgerIcon" onClick={() => setActive(!active)}>
                 <div
-                  className={`hamburger ${active ? "activeHamburger" : ""}`}
-                >
-                </div>
+                  className={`${scroll ? "hamburger" : "hamburgerX"} ${
+                    active ? "activeHamburger" : ""
+                  }`}
+                ></div>
               </div>
               <div className={`sidenav ${active ? "activeSidenav" : ""}`}>
                 <div className="icon-1-Y">
@@ -276,7 +277,6 @@ const Home = () => {
         </div>
       </header>
 
-      
       <div className="hero-sectioN">
         <video className="hero-videO" autoPlay loop muted>
           <source src="/videos/hero-video.mp4" type="video/mp4" />
@@ -320,8 +320,6 @@ const Home = () => {
         </div>
       </div>
 
-    
-
       <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="0">
         <div className="hero-section-2">
           <div className="container-3">
@@ -331,14 +329,18 @@ const Home = () => {
               modules={[Navigation, Pagination]}
               spaceBetween={30}
               slidesPerView={2.2}
-              navigation={false}
+              navigation={{
+                enabled: false,
+              }}
               pagination={{
                 type: "progressbar",
+                enabled: false,
               }}
               style={{
                 "--swiper-pagination-color": "#380913",
                 "--swiper-pagination-progressbar-bg-color": "#ffffff",
                 "--swiper-pagination-bottom": "0px",
+                "--swiper-navigation-color": "#380913",
               }}
               scrollbar={{
                 hide: true,
@@ -348,10 +350,23 @@ const Home = () => {
                 0: {
                   slidesPerView: 1,
                   spaceBetween: 20,
+                  navigation: {
+                    enabled: true,
+                  },
+                  pagination: {
+                    enabled: false,
+                  },
                 },
                 640: {
                   slidesPerView: 1,
                   spaceBetween: 20,
+                  navigation: {
+                    enabled: false,
+                  },
+                  pagination: {
+                    enabled: true,
+                    type: "progressbar",
+                  },
                 },
                 768: {
                   slidesPerView: 1.5,
@@ -396,55 +411,81 @@ const Home = () => {
       </div>
 
       <div data-aos="zoom-in-up" data-aos-duration="2000" data-aos-delay="0">
-        <div class="hero-section-3">
-          <div class="container-4">
-            <h1 class="container-3-h1">Explore by Categories</h1>
+        <div className="hero-section-3">
+          <div className="container-4">
+            <h1 className="container-3-h1">Explore by Categories</h1>
           </div>
-          <Swiper
-            modules={[Scrollbar]}
-            spaceBetween={0}
-            slidesPerView={3}
-            scrollbar={{ draggable: true }}
-            loop={true}
-            breakpoints={{
-              0: {
-                slidesPerView: 1,
-                spaceBetween: 0,
-              },
-              640: {
-                slidesPerView: 1,
-                spaceBetween: 0,
-              },
-              768: {
-                slidesPerView: 1.5,
-                spaceBetween: 0,
-              },
-              1000: {
-                slidesPerView: 2,
-                spaceBetween: 0,
-              },
-              1400: {
-                slidesPerView: 3,
-                spaceBetween: 0,
-              },
-            }}
-          >
-            {slides.map((item, index) => (
-              <SwiperSlide key={index}>
-                <div class="zoom-effect-container-2">
-                  <div class="image-card-2">
-                    <Image
-                      src={item.imageSrc}
-                      width={635}
-                      height={674}
-                      alt="Picture of the author"
-                    />
+          <div className="Categories-0">
+            <Swiper
+              modules={[Scrollbar]}
+              spaceBetween={0}
+              slidesPerView={3}
+              scrollbar={{ draggable: true }}
+              loop={true}
+              breakpoints={{
+                0: {
+                  slidesPerView: 1,
+                  spaceBetween: 0,
+                },
+                576: {
+                  slidesPerView: 1,
+                  spaceBetween: 0,
+                },
+                768: {
+                  slidesPerView: 1.5,
+                  spaceBetween: 0,
+                },
+                1000: {
+                  slidesPerView: 2,
+                  spaceBetween: 0,
+                },
+                1400: {
+                  slidesPerView: 3,
+                  spaceBetween: 0,
+                },
+              }}
+            >
+              {slides.map((item, index) => (
+                <SwiperSlide key={index}>
+                  <div className="zoom-effect-container-2">
+                    <div className="image-card-2">
+                      <Image
+                        src={item.imageSrc}
+                        width={635}
+                        height={674}
+                        alt="Picture of the author"
+                        className="category-image"
+                      />
+                      <div className="category-overlay">
+                        <h1 className="container-4-h1">{item.title}</h1>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+
+          <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="0">
+          {slides.map((item, index) => (
+            <div className="Categories" key={index}>
+              <div className="zoom-effect-container-2">
+                <div className="image-card-2">
+                  <Image
+                    src={item.imageSrc}
+                    width={635}
+                    height={674}
+                    alt="Picture of the author"
+                    className="category-image"
+                  />
+                  <div className="category-overlay">
+                    <h1 className="container-4-h1">{item.title}</h1>
                   </div>
                 </div>
-                <h1 className="container-4-h1">{item.title}</h1>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+              </div>
+            </div>
+          ))}
+        </div>
         </div>
       </div>
 
@@ -454,7 +495,10 @@ const Home = () => {
             <h1 className="container-3-h1">Explore More with Hometel</h1>
 
             <Swiper
-              modules={[Scrollbar]}
+              modules={[Navigation, Scrollbar]}
+              navigation={{
+                enabled: false,
+              }}
               spaceBetween={10}
               slidesPerView={2}
               scrollbar={{ draggable: true }}
@@ -463,10 +507,16 @@ const Home = () => {
                 0: {
                   slidesPerView: 1,
                   spaceBetween: 10,
+                  navigation: {
+                    enabled: true,
+                  },
                 },
                 640: {
                   slidesPerView: 1,
                   spaceBetween: 10,
+                  navigation: {
+                    enabled: false,
+                  },
                 },
                 768: {
                   slidesPerView: 1.5,
@@ -496,12 +546,8 @@ const Home = () => {
                     </div>
                   </div>
 
-                  <h1 className="container-5-h">
-                    {slide.title}
-                  </h1>
-                  <p className="container-5-p">
-                    {slide.description}
-                  </p>
+                  <h1 className="container-5-h">{slide.title}</h1>
+                  <p className="container-5-p">{slide.description}</p>
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -513,6 +559,8 @@ const Home = () => {
         <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="0">
           <div className="container-6">
             <h1 className="container-3-h1">News & Updates</h1>
+
+            <div className="Updates-0">
 
             <Swiper
               modules={[Scrollbar]}
@@ -568,6 +616,36 @@ const Home = () => {
                 </SwiperSlide>
               ))}
             </Swiper>
+            </div>
+
+
+            <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="0">
+            {sampleSlides.map((item, index) => (
+            <div className="Updates" key={index}>
+              <div class="zoom-effect-container-4">
+                <div class="image-card-4">
+                  <Image
+                    src={item.imageSrc}
+                    width={500}
+                    height={500}
+                    alt={item.imageAlt}
+                  />
+                </div>
+              </div>
+              <div className="conatiner-6-desc">
+                <div>
+                  <h1 className="container-6-h">{item.title}</h1>
+                  <p className="container-6-p">{item.description}</p>
+                </div>
+
+                <Link href="/#" className="container-6-btn">
+                  {item.buttonX}
+                </Link>
+              </div>
+            </div>
+              ))}
+               </div>
+
           </div>
         </div>
       </div>
