@@ -244,7 +244,8 @@ const Home = () => {
               <div className="hamburgerIcon" onClick={() => setActive(!active)}>
                 <div
                   className={`hamburger ${active ? "activeHamburger" : ""}`}
-                ></div>
+                >
+                </div>
               </div>
               <div className={`sidenav ${active ? "activeSidenav" : ""}`}>
                 <div className="icon-1-Y">
