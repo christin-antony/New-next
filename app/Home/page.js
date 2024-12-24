@@ -345,41 +345,59 @@ const Home = () => {
               scrollbar={{
                 hide: true,
               }}
+
               loop={true}
+              initialSlide={0}
+              watchOverflow={true}
+              observer={true}
+              observeParents={true}
               breakpoints={{
                 0: {
                   slidesPerView: 1,
                   spaceBetween: 20,
                   navigation: {
-                    enabled: true,
+                    enabled: true
                   },
                   pagination: {
                     enabled: false,
-                  },
+                    type: "progressbar"
+                  }
                 },
                 640: {
                   slidesPerView: 1,
                   spaceBetween: 20,
                   navigation: {
-                    enabled: false,
+                    enabled: false
                   },
                   pagination: {
                     enabled: true,
-                    type: "progressbar",
-                  },
+                    type: "progressbar"
+                  }
                 },
                 768: {
                   slidesPerView: 1.5,
                   spaceBetween: 30,
+                  pagination: {
+                    enabled: true,
+                    type: "progressbar"
+                  }
                 },
                 1000: {
                   slidesPerView: 2,
                   spaceBetween: 30,
+                  pagination: {
+                    enabled: true,
+                    type: "progressbar"
+                  }
                 },
                 1400: {
                   slidesPerView: 2.3,
                   spaceBetween: 30,
-                },
+                  pagination: {
+                    enabled: true,
+                    type: "progressbar"
+                  }
+                }
               }}
             >
               {slidesData.map((slide, index) => (
