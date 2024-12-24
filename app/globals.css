@@ -31,7 +31,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 10;
   background-color: transparent;
   border-bottom: 1px solid #a0a0a0;
   backdrop-filter: blur(20px);
@@ -63,18 +63,21 @@ header {
   flex: 40%;
   display: flex;
   justify-content: left;
+  z-index: 2000;
 }
 
 .column-2 {
   flex: 20%;
   display: grid;
   place-items: center;
+  z-index: 2000;
 }
 
 .column-3 {
   flex: 40%;
   display: flex;
   justify-content: right;
+
 }
 .icon-1 {
   width: 33px;
@@ -358,7 +361,7 @@ header {
   top: 0;
   left: 0;
   z-index: 1000;
-  padding-top: 18%;
+  padding-top:  15%;
 }
 
 .activeSidenav {
@@ -758,7 +761,7 @@ header {
   margin: 0;
   padding-top: 30px;
   padding-bottom: 10px;
-  width: 28%;
+  width: 31%;
   text-align: left;
 }
 
@@ -769,7 +772,7 @@ header {
   color: var(--slide-1-color);
   margin: 0;
   padding: 5px 0;
-  width: 45%;
+  width: 51%;
   text-align: left;
 }
 
