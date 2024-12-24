@@ -397,6 +397,22 @@ const Home = () => {
                     enabled: true,
                     type: "progressbar"
                   }
+                },
+                1600: {
+                  slidesPerView: 2.5,
+                  spaceBetween: 35,
+                  pagination: {
+                    enabled: true,
+                    type: "progressbar"
+                  }
+                },
+                1800: {
+                  slidesPerView: 2.5,
+                  spaceBetween: 35,
+                  pagination: {
+                    enabled: true,
+                    type: "progressbar"
+                  }
                 }
               }}
             >
